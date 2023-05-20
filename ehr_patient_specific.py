@@ -2,7 +2,7 @@ import tkinter as tk
 import csv
 import openai
 
-openai.api_key = "sk-XXX"
+openai.api_key = "sk-XXX" # Replace this with your own OpenAPI Key. 
 
 def read_csv_file(file_name):
     data = []
