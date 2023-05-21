@@ -5,7 +5,8 @@ This version is not just limited to patient-specific information but is now equi
 
 The EHR-Browser is an attempt at building a "pseudo" domain-specific LLM. The ultimate goal is to develop a tool that, if integrated into hospital EHR systems, could significantly enhance physicians' ability to ask and retrieve answers to specific queries. 
 
-<i>David, meet [Goliath](https://arstechnica.com/information-technology/2023/04/gpt-4-will-hunt-for-trends-in-medical-records-thanks-to-microsoft-and-epic/). <i>
+
+<i>David, meet [Goliath](https://arstechnica.com/information-technology/2023/04/gpt-4-will-hunt-for-trends-in-medical-records-thanks-to-microsoft-and-epic/). </i>
 
 ## Table of Contents
 
