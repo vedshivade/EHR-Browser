@@ -45,7 +45,7 @@ Run the script:
 ## Patient-Specific-Screenshots
 <p align="center">
   <b>MIMIC-III CSV Files:</b><br>
-  <img src="patient-specific-ss/csv_files" width="500"><br>
+  <img src="patient-specific-ss/csv_files.png" width="500"><br>
 </p>
 <p align="center">
   <b>Querying a patient's prescribed medication:</b><br>
