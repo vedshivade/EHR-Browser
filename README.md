@@ -101,7 +101,7 @@ As I continue to develop this "browser," I intend to incorporate a range of feat
 ### Integration with Other Databases:
 Right now, the browser will only work with the MIMIC-III database. Ultimately, the goal is to integrate the browser with actual hospital systems, enabling real-time patient information query. This will require several changes, likely including a shift away from public models like Davinci-003 for PHI security.
 
-### Chaining Querues
+### Chaining Queries
 The "relational" feature of this application can only find a connection between two values. It would be immensely useful to answer queries as such: What was the drug administered, and dosage administered, and route of administration for patients who were diagnosed with sepsis in the emergency location? This will be quite difficult. 
 
 ### Generalizable to Different Sources of Data
