@@ -49,50 +49,47 @@ Run the script:
 </p>
 <p align="center">
   <b>Querying a patient's prescribed medication:</b><br>
-  <img src="06034557-6da6-4d7d-9188-420bac3faf5d.png" width="500"><br>
+  <img src="patient-specific-ss/query_medication.png" width="500"><br>
 </p>
 <p align="center">
   <b>Increasing the complexity of a query that may take considerable time to manually find the answer to:</b><br>
-  <img src="f1f3d43e-13b7-4487-b25b-892abbe1cd0b.png" width="500"><br>
+  <img src="patient-specific-ss/query_complex.png" width="500"><br>
 </p>
 <p align="center">
   <b>Querying demographic information:</b><br>
-  <img src="f32b48b1-4f59-4353-b81d-5e1923611dba.png" width="500"><br>
+  <img src="patient-specific-ss/query_demographics.png" width="500"><br>
 </p>
 <p align="center">
   <b>Asking a question that the constructed patient profile has no answer to:</b><br>
-  <img src="f461d624-92bc-475f-80d3-127e1b8ad2e3.png" width="500"><br>
+  <img src="patient-specific-ss/query_smoking.png" width="500"><br>
 </p>
 <p align="center">
   <b>Asking a question that Davinci-003 struggles with:</b><br>
-  <img src="baa7a1a1-c4a2-42a4-8762-668227f2ba72.png" width="500"><br>
+  <img src="patient-specific-ss/query_struggle.png" width="500"><br>
   <i>Note: While Davinci-003 is a powerful model, it will sometimes struggle with dates and semantics. For example, it should state "discharged to a home health care location" and not "discharged from a home health care location". With regards to dates, this is partly due to the strange way dates are formatted in the MIMIC-III dataset which may be challenging for an LLM to normalize.</i>
 </p>
 
 ## Relational Screenshots
+The relational feature of this browser is still in progress. It does not work all the time. 
 <p align="center">
-  <b>MIMIC-III CSV Files:</b><br>
-  <img src="570a2f2a-4914-4df4-b874-367e71ff4ed9.png" width="500"><br>
+  <b>Querying a religion associated with Hepatitis B:</b><br>
+  <img src="relational-ss/rquery_religion.png" width="500"><br>
 </p>
 <p align="center">
-  <b>Querying a patient's prescribed medication:</b><br>
-  <img src="06034557-6da6-4d7d-9188-420bac3faf5d.png" width="500"><br>
+  <b>Querying a drug given to treat sepsis:</b><br>
+  <img src="relational-ss/rquery_religion.png" width="500"><br>
 </p>
 <p align="center">
-  <b>Increasing the complexity of a query that may take considerable time to manually find the answer to:</b><br>
-  <img src="f1f3d43e-13b7-4487-b25b-892abbe1cd0b.png" width="500"><br>
+  <b>Querying admission location for sepsis patients:</b><br>
+  <img src="relational-ss/rquery_al_sepsis.png" width="500"><br>
 </p>
 <p align="center">
-  <b>Querying demographic information:</b><br>
-  <img src="f32b48b1-4f59-4353-b81d-5e1923611dba.png" width="500"><br>
+  <b>Querying the NDC for the drug Senna:</b><br>
+  <img src="relational-ss/rquery_ndc_senna.png" width="500"><br>
 </p>
 <p align="center">
-  <b>Asking a question that the constructed patient profile has no answer to:</b><br>
-  <img src="f461d624-92bc-475f-80d3-127e1b8ad2e3.png" width="500"><br>
-</p>
-<p align="center">
-  <b>Asking a question that Davinci-003 struggles with:</b><br>
-  <img src="baa7a1a1-c4a2-42a4-8762-668227f2ba72.png" width="500"><br>
+  <b>Asking a question that the browser struggles with:</b><br>
+  <img src="relational-ss/rquery_failure.png" width="500"><br>
 </p>
 
 ## Future Work
