@@ -105,7 +105,7 @@ Right now, the browser will only work with the MIMIC-III database. Ultimately, t
 The UI is quite simple for now to match the application's functionality. As more features are added, the UI should facilitate productive use.
 
 ### Generalizable to Different Sources of Data
-Constructing a "patient profile" and then using an LLM to parse it for information is a very flexible framework because it is compatible with unstructured text-based sources. Ideally, one day, the browser should be able to take text-based documents as an input, and not just CSVs. This may include physician notes, lab reports, and other documents that will serve as sources for a well-informed answer.
+Constructing a "patient profile" and then using an LLM to parse it for information is a very flexible framework because it is compatible with unstructured text-based sources. Ideally, one day, the browser should be able to take all text-based documents as input, and not just CSVs. This may include physician notes, lab reports, and other documents that will serve as sources for a well-informed answer.
 
 ## The Dream
 Imagine a scenario in which a physician is attempting to determine the provenance of a patient's lung cancer. Instead of sifting through 20-30 years of patient data by hand, an intensive and error-prone task, they can instead ask simple queries: "Was this patient ever hospitalized for a respiratory illness previously?" or "Was this patient ever a smoker?" Ideally, the browser will save a significant amount of time and bolster accuracy in diagnoses. 
