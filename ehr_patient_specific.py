@@ -5,7 +5,7 @@ import string
 import random
 
 
-openai.api_key = "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"
+openai.api_key = "sk-XXX"
  # Replace with your own OpenAI key. 
 
 def load_csv(file_path):
