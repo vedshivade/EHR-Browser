@@ -4,6 +4,8 @@ EHR-Browser is a powerful tool that utilizes OpenAI's Davinci-003 language model
 
 This version is not just limited to patient-specific information but is now equipped with the capability to find correlations between random sets of data within the database, providing in-depth analysis when a specific subject_id is not provided. 
 
+The EHR-Browser is an attempt at building a "pseudo" domain-specific LLM. The ultimate goal is to develop a tool that, if integrated into hospital EHR systems, could significantly enhance physicians' ability to ask and retrieve answers to specific queries.
+
 ## Table of Contents
 
 - [Getting Started](#getting-started)
