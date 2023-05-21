@@ -101,8 +101,8 @@ As I continue to develop this "browser," I intend to incorporate a range of feat
 ### Integration with Other Databases:
 Right now, the browser will only work with the MIMIC-III database. Ultimately, the goal is to integrate the browser with actual hospital systems, enabling real-time patient information query. This will require several changes, likely including a shift away from public models like Davinci-003 for PHI security.
 
-### Enhanced GUI Features
-The UI is quite simple for now to match the application's functionality. As more features are added, the UI should facilitate productive use.
+### Chaining Querues
+The "relational" feature of this application can only find a connection between two values. It would be immensely useful to answer queries as such: What was the drug administered, and dosage administered, and route of administration for patients who were diagnosed with sepsis in the emergency location? This will be quite difficult. 
 
 ### Generalizable to Different Sources of Data
 Constructing a "patient profile" and then using an LLM to parse it for information is a very flexible framework because it is compatible with unstructured text-based sources. Ideally, one day, the browser should be able to take all text-based documents as input, and not just CSVs. This may include physician notes, lab reports, and other documents that will serve as sources for a well-informed answer.
