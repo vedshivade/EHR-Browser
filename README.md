@@ -44,56 +44,75 @@ Download the MIMIC-III CSV files from PhysioNet (or use the smaller public 100-p
 Run the script:
 ```python ehr_patient_specific.py```
 
-## Patient-Specific-Screenshots
-<p align="center">
-  <b>MIMIC-III CSV Files:</b><br>
-  <img src="patient-specific-ss/csv_files.png" width="500"><br>
-</p>
-<p align="center">
-  <b>Querying a patient's prescribed medication:</b><br>
-  <img src="patient-specific-ss/query_medication.png" width="500"><br>
-</p>
-<p align="center">
-  <b>Increasing the complexity of a query that may take considerable time to manually find the answer to:</b><br>
-  <img src="patient-specific-ss/query_complex.png" width="500"><br>
-</p>
-<p align="center">
-  <b>Querying demographic information:</b><br>
-  <img src="patient-specific-ss/query_demographics.png" width="500"><br>
-</p>
-<p align="center">
-  <b>Asking a question that the constructed patient profile has no answer to:</b><br>
-  <img src="patient-specific-ss/query_smoking.png" width="500"><br>
-</p>
-<p align="center">
-  <b>Asking a question that Davinci-003 struggles with:</b><br>
-  <img src="patient-specific-ss/query_struggle.png" width="500"><br>
-  <i>Note: While Davinci-003 is a powerful model, it will sometimes struggle with dates and semantics. For example, it should state "discharged to a home health care location" and not "discharged from a home health care location". With regards to dates, this is partly due to the strange way dates are formatted in the MIMIC-III dataset which may be challenging for an LLM to normalize.</i>
-</p>
+## Patient-Specific Screenshots
+
+<table style="width:100%; text-align: center;">
+<tr>
+    <td>
+        <b>MIMIC-III CSV Files:</b><br>
+        <img src="patient-specific-ss/csv_files.png" width="500">
+    </td>
+    <td>
+        <b>Querying a patient's prescribed medication:</b><br>
+        <img src="patient-specific-ss/query_medication.png" width="500">
+    </td>
+</tr>
+<tr>
+    <td>
+        <b>Increasing the complexity of a query:</b><br>
+        <img src="patient-specific-ss/query_complex.png" width="500">
+    </td>
+    <td>
+        <b>Querying demographic information:</b><br>
+        <img src="patient-specific-ss/query_demographics.png" width="500">
+    </td>
+</tr>
+<tr>
+    <td>
+        <b>Asking a question that the constructed patient profile has no answer to:</b><br>
+        <img src="patient-specific-ss/query_smoking.png" width="500">
+    </td>
+    <td>
+        <b>Asking a question that Davinci-003 struggles with:</b><br>
+        <img src="patient-specific-ss/query_struggle.png" width="500"><br>
+        <i>Note: While Davinci-003 is a powerful model, it sometimes struggles with dates and semantics.</i>
+    </td>
+</tr>
+</table>
 
 ## Relational Screenshots
 The relational feature of this browser is still in progress. It does not work all the time. 
-<p align="center">
-  <b>Querying a religion associated with Hepatitis B:</b><br>
-  <img src="relational-ss/rquery_religion.png" width="500"><br>
-</p>
-<p align="center">
-  <b>Querying a drug given to treat sepsis:</b><br>
-  <img src="relational-ss/rquery_drug_sepsis.png" width="500"><br>
-</p>
-<p align="center">
-  <b>Querying admission location for sepsis patients:</b><br>
-  <img src="relational-ss/rquery_al_sepsis.png" width="500"><br>
-</p>
-<p align="center">
-  <b>Querying the NDC for the drug Senna:</b><br>
-  <img src="relational-ss/rquery_ndc_senna.png" width="500"><br>
-</p>
-<p align="center">
-  <b>Asking a question that the browser struggles with:</b><br>
-  <img src="relational-ss/rquery_failure.png" width="500"><br>
-  <i>It seems as though the query somehow passed through all my careful prompt-engineering and somehow brought about an answer from Davinci-003 that wasn't based on the data it was provided. I will have to tweak my prompts to fix this. </i>
-</p>
+
+<table style="width:100%; text-align: center;">
+<tr>
+    <td>
+        <b>Querying a religion associated with Hepatitis B:</b><br>
+        <img src="relational-ss/rquery_religion.png" width="500">
+    </td>
+    <td>
+        <b>Querying a drug given to treat sepsis:</b><br>
+        <img src="relational-ss/rquery_drug_sepsis.png" width="500">
+    </td>
+</tr>
+<tr>
+    <td>
+        <b>Querying admission location for sepsis patients:</b><br>
+        <img src="relational-ss/rquery_al_sepsis.png" width="500">
+    </td>
+    <td>
+        <b>Querying the NDC for the drug Senna:</b><br>
+        <img src="relational-ss/rquery_ndc_senna.png" width="500">
+    </td>
+</tr>
+<tr>
+    <td colspan="2" style="text-align:center;">
+        <b>Asking a question that the browser struggles with:</b><br>
+        <img src="relational-ss/rquery_failure.png" width="500"><br>
+        <i>It seems the query somehow passed through all my careful prompt-engineering and brought about an answer from Davinci-003 that wasn't based on the data it was provided. I will have to tweak my prompts to fix this.</i>
+    </td>
+</tr>
+</table>
+
 
 ## Future Work
 As I continue to develop this "browser," I intend to incorporate a range of features that will provide a more robust and user-friendly experience. Some of these goals include:
