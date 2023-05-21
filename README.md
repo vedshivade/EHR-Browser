@@ -92,7 +92,7 @@ The relational feature of this browser is still in progress. It does not work al
 <p align="center">
   <b>Asking a question that the browser struggles with:</b><br>
   <img src="relational-ss/rquery_failure.png" width="500"><br>
-  <i>It seems as though the query somehow passed through all my careful prompt-engineering and somehow brought about an answer from Davinci-003 that wasn't based on the data it was provided. I will have to tweak my prompts to fix this. </i>
+  <i>It seems as though the query somehow passed through all my careful prompt-engineering and somehow generated an answer from Davinci-003 that wasn't based on MIMIC-III data. I will have to tweak my prompts to fix this. </i>
 </p>
 
 
