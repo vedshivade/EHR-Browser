@@ -4,7 +4,7 @@ import openai
 import string
 import random
 
-openai.api_key = "sk-XXX" # Replace with your own OpenAI API key.
+openai.api_key = "sk-XXX" # Replace with your own OpenAI key. 
 
 def load_csv(file_path):
     records = []
@@ -14,19 +14,18 @@ def load_csv(file_path):
             records.append(row)
     return records
 
-def build_patient_data(subject_id, csv_files, field_one, field_two, value_two):
-    patient_data = {}
+def build_patient_data(subject_id):
+    patient_info = {}
     for file in csv_files:
-        records = load_csv(file)
-        for record in records:
+        data = load_csv(file)
+        print(f"Columns in {file}: {', '.join(data[0].keys())}")
+        for row in data:
             try:
-                if record['subject_id'] == subject_id:
-                    if field_one.strip().lower() in record and field_two.strip().lower() in record:
-                        if record[field_one.strip().lower()] and record[field_two.strip().lower()].lower() == value_two.lower():
-                            patient_data.update(record)
+                if row['subject_id'] == subject_id:
+                    patient_info.update(row)
             except:
                 print(file + " does not have a subject_id col")
-    return patient_data
+    return patient_info
 
 def query_patient_data(patient_data, query_text):
     patient_info_str = '\n'.join([f"{key}: {value}" for key, value in patient_data.items()])
@@ -43,17 +42,20 @@ def query_patient_data(patient_data, query_text):
 
     return response.choices[0].text.strip()
 
-def find_matching_subject_ids(csv_files, field_one, field_two, value_two):
+def find_matching_subject_ids(csv_files, field_two, value_two):
     matching_ids = []
     for csv_file in csv_files:
         with open(csv_file, 'r') as file:
             reader = csv.DictReader(file)
             for record in reader:
-                subject_id = record['subject_id']
-                if field_one.strip().lower() in record and field_two.strip().lower() in record:
-                    if record[field_one.strip().lower()] and value_two.lower() in record[field_two.strip().lower()].lower():
+                if field_two.strip().lower() in record:
+                    if value_two.lower() in record[field_two.strip().lower()].lower():
+                        subject_id = record['subject_id']
                         matching_ids.append(subject_id)
+    print(matching_ids)
     return matching_ids
+
+
 
 def list_all_fields(csv_files):
     all_fields = set()
@@ -100,15 +102,15 @@ def extract_fields_from_query(user_query, available_fields):
     # the right answer.
 
     try:
-        matching_ids = find_matching_subject_ids(csv_files, extracted_fields[0], extracted_fields[1], second_response_text)
+        matching_ids = find_matching_subject_ids(csv_files, extracted_fields[1], second_response_text)
         random_id = random.choice(matching_ids)
-        patient_data = build_patient_data(random_id, csv_files, extracted_fields[0], extracted_fields[1], second_response_text)
+        patient_data = build_patient_data(random_id)
         print(patient_data)
     except:
         try:
-            matching_ids = find_matching_subject_ids(csv_files, extracted_fields[1], extracted_fields[0], second_response_text)
+            matching_ids = find_matching_subject_ids(csv_files, extracted_fields[0], second_response_text)
             random_id = random.choice(matching_ids)
-            patient_data = build_patient_data(random_id, csv_files, extracted_fields[1], extracted_fields[0], second_response_text)
+            patient_data = build_patient_data(random_id)
             print(patient_data)
             flipper = 1 # 
         except:
