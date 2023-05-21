@@ -77,7 +77,7 @@ The relational feature of this browser is still in progress. It does not work al
 </p>
 <p align="center">
   <b>Querying a drug given to treat sepsis:</b><br>
-  <img src="relational-ss/rquery_religion.png" width="500"><br>
+  <img src="relational-ss/rquery_drug_sepsis.png" width="500"><br>
 </p>
 <p align="center">
   <b>Querying admission location for sepsis patients:</b><br>
