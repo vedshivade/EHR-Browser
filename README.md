@@ -74,7 +74,7 @@ Run the script:
 </p>
 
 ## Relational Screenshots
-The relational feature of this browser is still in progress. It does not work all the time. 
+The relational feature of this browser is still in progress. It does not work very well just yet. 
 <p align="center">
   <b>Querying a drug given to treat sepsis:</b><br>
   <img src="relational-ss/rquery_drug_sepsis.png" width="500"><br>
