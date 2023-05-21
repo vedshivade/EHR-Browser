@@ -16,17 +16,16 @@ def load_csv(file_path):
             records.append(row)
     return records
 
-def build_patient_data(subject_id):
+def build_patient_data(subject_id, csv_files, field_two, value_two):
     patient_info = {}
     for file in csv_files:
         data = load_csv(file)
-        print(f"Columns in {file}: {', '.join(data[0].keys())}")
         for row in data:
             try:
-                if row['subject_id'] == subject_id:
+                if row['subject_id'] == subject_id and row[field_two.strip().lower()].lower() == value_two.lower():
                     patient_info.update(row)
-            except:
-                print(file + " does not have a subject_id col")
+            except KeyError:
+                continue
     return patient_info
 
 def query_patient_data(patient_data, query_text):
@@ -54,10 +53,8 @@ def find_matching_subject_ids(csv_files, field_two, value_two):
                     if value_two.lower() in record[field_two.strip().lower()].lower():
                         subject_id = record['subject_id']
                         matching_ids.append(subject_id)
-    print(matching_ids)
+    #print(matching_ids)
     return matching_ids
-
-
 
 def list_all_fields(csv_files):
     all_fields = set()
@@ -104,27 +101,47 @@ def extract_fields_from_query(user_query, available_fields):
     # which obviously won't work. Therefore, we may sometimes flip these two values if necessary to continue to 
     # the right answer.
 
-    try:
-        matching_ids = find_matching_subject_ids(csv_files, extracted_fields[1], second_response_text)
-        random_id = random.choice(matching_ids)
-        patient_data = build_patient_data(random_id)
-        print(patient_data)
-    except:
+    patient_datas = []
+    patient_values = []
+    patient_datas_flipped = []
+    patient_values_flipped = []
+
+    
+    matching_ids = find_matching_subject_ids(csv_files, extracted_fields[1], second_response_text)
+    counter = 0
+    for id in matching_ids:
+        if counter >= 5:
+            break
+        x = build_patient_data(id, csv_files, extracted_fields[1], second_response_text)
+        patient_datas.append(x)
+        counter = counter + 1
+
+    if len(matching_ids) == 0:
         try:
             matching_ids = find_matching_subject_ids(csv_files, extracted_fields[0], second_response_text)
-            random_id = random.choice(matching_ids)
-            patient_data = build_patient_data(random_id)
-            print(patient_data)
+            for id in matching_ids:
+                if counter >= 5:
+                    break
+                x = build_patient_data(id, csv_files, extracted_fields[0], second_response_text)
+                patient_datas_flipped.append(x)
+                counter = counter + 1
             flipper = 1 # 
         except:
             return "No answer found!"
 
     try:
-        value = patient_data[extracted_fields[0 if flipper == 0 else 1].lower()]
+        if flipper == 0:
+            for patient_data in patient_datas:
+                value = patient_data[extracted_fields[0].lower()]
+                patient_values.append(value)
+        else:
+            for patient_data in patient_datas_flipped:
+                value = patient_data[extracted_fields[1].lower()]
+                patient_values_flipped.append(value)
     except KeyError:
         value = "No answer found!"
 
-    return value
+    return (patient_values if flipper == 0 else patient_values_flipped)
 
 def run_query():
     subject_id = subject_id_entry.get()
@@ -185,7 +202,7 @@ submit_button = tk.Button(main_window, text="Submit", command=run_query)
 submit_button.pack()
 
 # Response label and text area
-response_label = tk.Label(main_window, text="Response:")
+response_label = tk.Label(main_window, text="Response (up to 5 representative samples):")
 response_label.pack()
 response_text_box = tk.Text(main_window, height=9)
 response_text_box.pack()
