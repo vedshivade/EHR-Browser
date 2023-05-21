@@ -4,7 +4,9 @@ import openai
 import string
 import random
 
-openai.api_key = "sk-XXX" # Replace with your own OpenAI key. 
+
+openai.api_key = "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"
+ # Replace with your own OpenAI key. 
 
 def load_csv(file_path):
     records = []
@@ -67,6 +69,7 @@ def list_all_fields(csv_files):
     return list(all_fields)
 
 def extract_fields_from_query(user_query, available_fields):
+    # Need to experiment with stemming or some other kind of NLP thing, here running two queries is cost-intensive.
     prompt = f"What 2 things in list ({available_fields}) exist in the query ({user_query}) Respond with commas separating."
 
     response = openai.Completion.create(
@@ -116,20 +119,12 @@ def extract_fields_from_query(user_query, available_fields):
         except:
             return "No answer found!"
 
-    third_prompt = f"What is {extracted_fields[0 if flipper == 0 else 1]} equal to in {patient_data}?"
-    third_response = openai.Completion.create(
-        engine='text-davinci-003',
-        prompt=third_prompt,
-        max_tokens=100,
-        n=1,
-        stop=None,
-        temperature=0.7
-    )
+    try:
+        value = patient_data[extracted_fields[0 if flipper == 0 else 1].lower()]
+    except KeyError:
+        value = "No answer found!"
 
-    third_response_text = third_response.choices[0].text.strip()
-    third_response_text = third_response_text.lower()
-
-    return third_response_text
+    return value
 
 def run_query():
     subject_id = subject_id_entry.get()
