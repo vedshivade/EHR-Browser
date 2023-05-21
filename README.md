@@ -78,6 +78,7 @@ The relational feature of this browser is still in progress. It does not work ve
 <p align="center">
   <b>Querying a drug given to treat sepsis:</b><br>
   <img src="relational-ss/rquery_drug_sepsis.png" width="500"><br>
+  <i>This answer would be better if it returned all medications prescribed for sepsis patients in the past. </i>
 </p>
 <p align="center">
   <b>Querying admission location for sepsis patients:</b><br>
