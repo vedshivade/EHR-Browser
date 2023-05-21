@@ -1,7 +1,7 @@
 # EHR-Browser
 EHR-Browser is a powerful tool that utilizes OpenAI's Davinci-003 language model and a simple graphical user interface (GUI) to enable users to interactively inquire about patient-specific data and general information stored in the MIMIC-III dataset. The MIMIC-III dataset is used to simulate a hospital database. 
 
-This version is not just limited to patient-specific information but is now equipped with the capability to find correlations between random sets of data within the database, providing in-depth analysis when a specific subject_id is not provided. 
+This version is not just limited to patient-specific information but is now equipped (sort of) with the capability to find correlations between random sets of data within the database, providing in-depth analysis when a specific subject_id is not provided. 
 
 The EHR-Browser is an attempt at building a "pseudo" domain-specific LLM. The ultimate goal is to develop a tool that, if integrated into hospital EHR systems, could significantly enhance physicians' ability to ask and retrieve answers to specific queries. 
 
